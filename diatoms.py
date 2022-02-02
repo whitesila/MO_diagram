@@ -21,18 +21,38 @@ def how_orbitals_fill(atom_1, atom_2):
 
 def fill_s(atom_1, atom_2):
     MO = list
-    if atom_1 == atom_2 and not is_exception(atom_1):
+    if atom_1 == atom_2 and not is_exception(atom_1):  # checks to see if atoms are the same and not listed exceptions
         for item in atom_2.orbitals:
-            if item[1] == 1 and item[2] == 2:
+            if item[1] == 1 and item[2] == 2:  # if orbital is s and has 2 electrons
                 x = item
                 x.append('b')
-                MO.append(item)
+                MO.append(x)
                 x = item
                 x.append('a')
-                MO.append()
+                MO.append(x)
             else:
-                
-    else:
+                x = item
+                x.append('b')
+    return MO
+
+def fill_p(atom_1, atom_2):
+    MO = list
+    x = 0
+    if atom_1 == atom_2 and not is_exception(atom_2):
+        x = atom_2.orbitals[1][2]
+        for item in atom_2.orbitals:
+            if item[1] == 2 and item[2] == 6:
+                x = item
+                x.append('b')
+                MO.append(x)
+                x = item
+                x.append('a')
+                MO.append(x)
+        for item in range(0, x):
+
+
+    return MO
+
 
 def is_exception(atom):
     exceptions = [C, Si]
